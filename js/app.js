@@ -12,6 +12,30 @@ const cards = document.querySelectorAll('.deck i');
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
+const newArray = [];
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    
+
+    for (let i = 0; i <=15; i++) {
+        newArray.push(array[i]);
+    }
+    
+
+    while (currentIndex !== 0) {
+        // debugger;
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = newArray[currentIndex];
+        newArray[currentIndex] = newArray[randomIndex];
+        newArray[randomIndex] = temporaryValue;
+
+    }
+
+    console.log(newArray);
+}
+
+shuffle(cards); 
 
 /*
  * set up the event listener for a card. If a card is clicked:
