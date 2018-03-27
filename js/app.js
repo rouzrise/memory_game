@@ -32,7 +32,7 @@ function shuffle(array) {
 
     }
 
-    console.log(newArray);
+    return newArray;
 }
 
 shuffle(cards); 
