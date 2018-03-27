@@ -56,15 +56,48 @@ function createNewGrid() {
 
 createNewGrid();
 
+const openCards = [];
+const deck = document.querySelector('.deck');
+const matches = document.getElementsByClassName('open');
+
+deck.addEventListener('click', function (e) {
+   
+    let card = e.target;
+    card.classList.add('show', 'open');
+
+    // const openCards = [];
+    openCards.push(card);
+
+    if (openCards.length > 1 && openCards[0].lastChild.className === openCards[1].lastChild.className) {
+        
+    for(var i=0; i < matches.length; i++) {
+        debugger;
+        matches[i].classList.remove('show', 'open').add('match');
+    }
+    openCards.length=0;
+    
+    
+        }
+    else if (openCards.length > 1 && openCards[0].lastChild.className !== openCards[1].lastChild.className) {
+            card.classList.remove('show', 'open');
+            openCards.pop();
+        }
+    
+});
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+ *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you
+ *  call from this one)
+ *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality 
+ * in another function that you call from this one)
+ *    + increment the move counter and display it on the page (put this functionality in another function that you call 
+ * from this one)
+ *    + if all cards have matched, display a message with the final score (put this functionality in another function that 
+ * you call from this one)
  */
 
 
