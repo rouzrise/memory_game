@@ -39,6 +39,23 @@ shuffle(cards);
 
 document.querySelector('.deck').remove();
 
+let testDeck = document.createElement('div');
+testDeck.classList.add('deck');
+function createNewGrid() {
+    
+    for (let i = 0; i < 16; i++) {
+        const elem = document.createElement('li');
+        elem.classList.add('card');
+        elem.appendChild(newArray[i]);
+        testDeck.appendChild(elem);
+
+    }
+    const container = document.querySelector('.container');
+    container.appendChild(testDeck);
+}
+
+createNewGrid();
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
