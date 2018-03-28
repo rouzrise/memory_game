@@ -60,6 +60,7 @@ const openCards = [];
 const deck = document.querySelector('.deck');
 const matches = document.getElementsByClassName('open');
 const totalOpen = document.getElementsByClassName('match');
+let count = 0;
 
 deck.addEventListener('click', function (e) {
    
@@ -85,7 +86,29 @@ deck.addEventListener('click', function (e) {
             openCards.pop();
         }
 
-   
+    if (totalOpen.length === 16) {
+         
+        const modal = document.querySelector('#modal'),
+        // modalOverlay = document.querySelector('#modal-overlay'),
+        closeButton = document.querySelector('#close-button'),
+        openButton = document.querySelector('#open-button');
+
+        modal.classList.toggle('closed');
+        // modalOverlay.classList.toggle('closed');
+
+        closeButton.addEventListener('click', function() {
+        modal.classList.toggle('closed');
+        // modalOverlay.classList.toggle('closed');
+        });
+
+        // openButton.addEventListener('click', function() {
+        // modal.classList.toggle('closed');
+        // modalOverlay.classList.toggle('closed');
+        // });
+
+        }
+        
+
 });
 
 
