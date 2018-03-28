@@ -59,6 +59,7 @@ createNewGrid();
 const openCards = [];
 const deck = document.querySelector('.deck');
 const matches = document.getElementsByClassName('open');
+const totalOpen = document.getElementsByClassName('match');
 
 deck.addEventListener('click', function (e) {
    
@@ -71,19 +72,25 @@ deck.addEventListener('click', function (e) {
     if (openCards.length > 1 && openCards[0].lastChild.className === openCards[1].lastChild.className) {
         
     for(var i=0; i < matches.length; i++) {
-        debugger;
-        matches[i].classList.remove('show', 'open').add('match');
+        // debugger;
+        // matches[i].classList.remove('show', 'open').add('match');
+        matches[i].classList.add('match');
     }
     openCards.length=0;
     
-    
+
         }
     else if (openCards.length > 1 && openCards[0].lastChild.className !== openCards[1].lastChild.className) {
             card.classList.remove('show', 'open');
             openCards.pop();
         }
-    
+
+   
 });
+
+
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
