@@ -79,8 +79,9 @@ deck.addEventListener('click', function (e) {
         // debugger;
         // matches[i].classList.remove('show', 'open').add('match');
         matches[i].classList.add('match');
+        openCards.length=0;
     }
-    openCards.length=0;
+    // openCards.length=0;
     
 
         }
@@ -124,6 +125,65 @@ if (totalMoves === 30) {
      else if (totalMoves === 50) {
     starsContainer.removeChild(stars);
         }
+
+///StopWatch functionality
+
+    let seconds = 00; 
+  let minutes = 00; 
+  const appendSeconds = document.getElementById("seconds")
+  const appendMinutes = document.getElementById("minutes")
+//   const buttonStart = document.getElementById('button-start');
+  const buttonStop = document.getElementById('button-stop');
+//   const buttonReset = document.getElementById('button-reset');
+  let Interval ;
+
+
+  clearInterval(Interval);
+     Interval = setInterval(startTimer, 1000);
+
+     function startTimer () {
+        seconds++; 
+        
+        if(seconds <= 9) {
+          appendSeconds.innerHTML = "0" + seconds;
+        }
+        
+        if (seconds > 9){
+          appendSeconds.innerHTML = seconds;
+          
+        } 
+        
+        if (seconds > 59) {
+        //   console.log("seconds");
+          minutes++;
+          appendMinutes.innerHTML = "0" + minutes;
+          seconds = 0;
+          appendSeconds.innerHTML = "0" + 0;
+        }
+        
+        if (minutes > 9){
+          appendMinutes.innerHTML = minutes;
+        }
+      
+      }
+//   Functionality - for stop and reset - to Use for restart
+//     buttonStop.onclick = function() {
+//        clearInterval(Interval);
+//   }
+  
+
+//   buttonReset.onclick = function() {
+//      clearInterval(Interval);
+//     tens = "00";
+//   	seconds = "00";
+//     appendTens.innerHTML = tens;
+//   	appendSeconds.innerHTML = seconds;
+//   }
+  
+   
+  
+
+  
 
 });
 
