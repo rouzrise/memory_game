@@ -115,6 +115,17 @@ deck.addEventListener('click', function (e) {
     const stars = document.querySelector('.stars li');
    
   
+///Rating 
+
+if (totalMoves === 30) {
+    starsContainer.removeChild(stars);
+        }
+    
+     else if (totalMoves === 50) {
+    starsContainer.removeChild(stars);
+        }
+
+});
 
 
 
