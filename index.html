@@ -9,19 +9,16 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>Matching Game</h1>
         </header>
 
-       
-
         <section class="score-panel">
-            
             <div class="wrapper">
                 <p id="time">0 : 0</p>
             </div>
+
         	<ul class="stars">
         		<li><i class="fa fa-star"></i></li>
         		<li><i class="fa fa-star"></i></li>
@@ -87,11 +84,13 @@
         </ul>
     </div>
 
-    <div class="modal closed" id="modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+    <div class="modal closed" id="modal">
       <div class="modal-guts">
         <p class="congratMessage">You won!</p>
-        <p>Rating: <span class = "finalRating"></span></p>
-        <p>Time spent: <span class = "timeSpent"></span></p>
+        <div>Rating: <span class = "finalRating"><li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li></span></div>
+        <div>Time spent: <span class = "timeSpent"></span></div>
         <button class="restart-button" id="restart-button" title="Close">Once more? :)</button>        
       </div>
       

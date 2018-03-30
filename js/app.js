@@ -47,7 +47,7 @@ createNewGrid();
 
 const deck = document.querySelector('.deck');
 const matches = document.getElementsByClassName('open');
-const totalOpen = document.getElementsByClassName('match');
+let totalOpen = document.getElementsByClassName('match');
 let totalMoves = 0;
 const moves = document.querySelector('.moves');
 
@@ -93,6 +93,20 @@ deck.addEventListener('click', function (e) {
 
     openingCards();
 
+    ///StopWatch functionality
+    
+
+    function stopWatch () {
+        startTime = setInterval(function start() {
+            time.innerText = minutes + ' : ' + seconds;
+            seconds++;
+            if (seconds === 60) {
+                minutes++;
+                seconds = 0;
+            }
+        }, 1000);
+    }
+
     function modalWindow() {
     const rating = document.querySelector('.finalRating');
     const timeSpent = document.querySelector('.timeSpent');
@@ -124,7 +138,7 @@ deck.addEventListener('click', function (e) {
         }
     }
 
-    modalWindow()   
+    modalWindow();   
 
 ///Rating 
 
@@ -141,21 +155,8 @@ deck.addEventListener('click', function (e) {
         }
     }
 
-    ratingDisplay ()
+    ratingDisplay ();
 
-///StopWatch functionality
-    
-
-    function stopWatch () {
-        startTime = setInterval(function start() {
-            time.innerText = minutes + ' : ' + seconds;
-            seconds++;
-            if (seconds == 60) {
-                minutes++;
-                seconds = 0;
-            }
-        }, 1000);
-    }
 });
 
 const restart = document.querySelector('.restart');
@@ -165,6 +166,22 @@ restart.addEventListener('click', function (e) {
     newArray = [];
     openCards = [];
     shuffle(cards);
+    function createNewGrid() {
+        let testDeck = document.createElement('div');
+        let container = document.querySelector('.container');
+    
+        document.querySelector('.deck').remove();
+        testDeck.classList.add('deck');
+        
+        for (let i = 0; i < 16; i++) {
+            const elem = document.createElement('li');
+            elem.classList.add('card');
+            elem.appendChild(newArray[i]);
+            testDeck.appendChild(elem);
+        }
+    
+        container.appendChild(testDeck);
+    };
     createNewGrid();
     totalMoves = 0;
     clearInterval(startTime);
@@ -173,3 +190,4 @@ restart.addEventListener('click', function (e) {
     time.innerText = '0 : 0';
     
 });
+
