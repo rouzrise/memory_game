@@ -59,29 +59,30 @@ function respondToTheClick(e) {
 
     // if none cards were open or one card was open before
     if (card.nodeName === 'LI' && card.classList.contains('open') === false && openCards.length < 2) {
-        totalMoves += 1;
         card.classList.add('show', 'open');
-        moves.innerText = `${totalMoves}`;
         openCards.push(card);
-    
+        totalMoves += 1;
+        moves.innerText = `${totalMoves}`;
+        
         //start timer
         if (totalMoves === 1) {
             stopWatch (); 
         }
 
-    }
+        //evoke rating count 
+        ratingDisplay ();
 
-    //evoke rating count 
-    ratingDisplay ();
-
-    //if cards match
-    if (openCards.length > 1 && openCards[0].lastChild.className === openCards[1].lastChild.className) {
-        match();
-    }
-    //if cards don't match
-    else if (openCards.length > 1 && openCards[0].lastChild.className != openCards[1].lastChild.className) {
-        setTimeout(makeRed, 200);
-        setTimeout(removeRed, 700);  
+        //if cards match
+        if (openCards.length > 1 && openCards[0].lastChild.className === openCards[1].lastChild.className) {
+            match();
+            
+        }
+        //if cards don't match
+        else if (openCards.length > 1 && openCards[0].lastChild.className != openCards[1].lastChild.className) {
+            setTimeout(makeRed, 200);
+            setTimeout(removeRed, 700);  
+           
+        }
     }
  
     function match () {
