@@ -4,7 +4,7 @@ const gameConst = {
     timer: document.querySelector('.timer'),
     modal: document.querySelector('.modal'),
     restartButton: document.querySelector('.restart-button')
-}
+};
 
 let gameLet = {
     iconsArray: gameConst.initialArray.concat(gameConst.initialArray),
@@ -13,7 +13,8 @@ let gameLet = {
     minutes: 0,
     seconds: 0,
     openCards: [],
-}
+    firstClick: 0
+};
 
 let startTime;
 
@@ -46,7 +47,7 @@ function createNewGrid() {
         const elem = document.createElement('li');
         elem.classList.add('card');
         const iElem = document.createElement('i');
-        iElem.classList.add('fa', iconsArray[i]);
+        iElem.classList.add('fa', gameLet.iconsArray[i]);
         elem.appendChild(iElem);
         testDeck.appendChild(elem);
     }
@@ -60,16 +61,16 @@ createNewGrid();
 //creates functionality after click on the card
 function respondToTheClick(e) {
     e.preventDefault();
-
     let card = e.target;
 
     // if none cards were open or one card was open before
-    if (card.nodeName === 'LI' && card.classList.contains('open') === false && gameLet.openCards.length < 2) {
+    if (card.nodeName === 'LI' && card.classList.contains('open') === false && card.classList.contains('match') === false && gameLet.openCards.length < 2) {
+        gameLet.firstClick += 1;
         card.classList.add('show', 'open');
         gameLet.openCards.push(card);
         
         //start timer
-        if (gameLet.totalMoves === 1) {
+        if (gameLet.firstClick === 1) {
             stopWatch (); 
         }
 
@@ -120,7 +121,7 @@ function respondToTheClick(e) {
         if (gameLet.totalMoves === 30) {
             starsContainer.children[2].lastChild.className = 'whiteColor fa fa-star white';
         }
-        else if (gameLet.totalMoves === 50) {
+        else if (gameLet.totalMoves === 40) {
             starsContainer.children[1].lastChild.className = 'whiteColor fa fa-star white';
         }
     }
@@ -157,6 +158,7 @@ function respondToTheClick(e) {
             shuffle(gameLet.iconsArray);
             createNewGrid();
             gameLet.totalMoves = 0;
+            gameLet.firstClick = 0;
             clearInterval(startTime);
             gameLet.minutes = 0;
             gameLet.seconds = 0;
@@ -164,7 +166,6 @@ function respondToTheClick(e) {
             document.querySelector('.stars').innerHTML = '<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>';
             gameConst.timer.innerText = '0 : 0';
         });
-    
     }
 }
 
@@ -189,6 +190,7 @@ restart.addEventListener('click', function(e) {
     shuffle(gameLet.iconsArray);
     createNewGrid();
     gameLet.totalMoves = 0;
+    gameLet.firstClick = 0;
     clearInterval(startTime);
     gameConst.moves.innerText = '0';
     document.querySelector('.stars').innerHTML = '<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>';
