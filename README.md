@@ -1,20 +1,32 @@
 # Memory Game Project
+Memory Game Project is an online game which allows you to train Memory!
+16 paired cards are flipped over - your aim is to find all the pairs ASAP opening cards one after another.
 
-## Table of Contents
+## How to play
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+### 1.Click first card
+The first card you click will turn blue. 
 
-## Instructions
+### 2.Click next card
+If the next card you click will match the first card - both of them will turn green and stay open. 
+If it doesn't match - both of the cards will turn red and close after a while.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+### 3.You principal aim is to open all cards ASAP
+Continue opening cards unless all the matches cards stay open.
+Your principal aim is to do this - and to so this **ASAP**.
 
-To get started, open `js/app.js` and start building out the app's functionality
+The stars show your rating - after **_30_** clicks it will be leveled-off from 3 to 2 stars. After **_50_** clicks - to 1 star.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+After finishing game you will see your **rating** and how much **time** it took you to find all the matches.
 
-## Contributing
+### 4. Restrictions
+You can't open more than 2 cards at once. Only clicks which open cards are counted.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+### 5. Enjoy!
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Idea
+The game was created as part of the Front-End Web Developer Nanodegree Program by Udacity. For more information please visit [https://www.udacity.com](https://www.udacity.com)
+
+## License
+
+The content of this repository is licensed under a [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/us/) 
